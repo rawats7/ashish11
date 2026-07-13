@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#1B1023">
     <title>Ashish Bhai </title>
@@ -22,732 +22,613 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1040308211790332&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,720&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-
-    <link rel="preload" as="audio" href="ashish.ogg">
-    <link rel="preload" as="audio" href="ashish.mp3">
-
     <style>
-        :root {
-            --bg-0: #1B1023;
-            --bg-1: #2A1830;
-            --bg-2: #160B1D;
-            --gold: #E8B854;
-            --gold-soft: #f3d28e;
-            --coral: #F0857A;
-            --ink: #F5EFE6;
-            --ink-dim: #B8A8BE;
-            --tg-blue: #27A7E7;
-            --ring-amp: 0.18;
-            --ring-glow: 0.5;
-        }
-
+        /* ── Reset & Base ── */
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
-        html,
-        body {
-            height: 100%;
+
+        :root {
+            --bg: #0b0e14;
+            --card: #121820;
+            --text: #f0f4ff;
+            --muted: #8b9bb5;
+            --cyan: #38bdf8;
+            --cyan-dark: #0ea5e9;
+            --glow: rgba(56, 189, 248, 0.35);
         }
+
         body {
-            margin: 0;
+            background: var(--bg);
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
             min-height: 100vh;
-            min-height: 100dvh;
-            background: var(--bg-0);
-            color: var(--ink);
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            -webkit-font-smoothing: antialiased;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow-x: hidden;
-            cursor: default;
+            padding: 16px;
+            background-image:
+                radial-gradient(ellipse at 20% 50%, rgba(56, 189, 248, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(56, 189, 248, 0.04) 0%, transparent 50%);
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.001ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.001ms !important;
-            }
-        }
-
-        .scene {
-            position: relative;
+        .container {
+            max-width: 400px;
             width: 100%;
-            min-height: 100vh;
-            min-height: 100dvh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 32px 20px;
-        }
-
-        /* ---- deeper, richer ambient background ---- */
-        .ambient {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            background:
-                radial-gradient(55% 45% at 50% 5%, rgba(232, 184, 84, 0.22), transparent 58%),
-                radial-gradient(65% 55% at 82% 88%, rgba(240, 133, 122, 0.18), transparent 58%),
-                radial-gradient(75% 65% at 12% 95%, rgba(122, 72, 170, 0.22), transparent 58%),
-                radial-gradient(50% 40% at 50% 50%, rgba(245, 210, 142, 0.06), transparent 70%),
-                linear-gradient(165deg, var(--bg-0), #1a0e24 40%, var(--bg-2) 75%);
-            background-size: 140% 140%, 140% 140%, 140% 140%, 120% 120%, 100% 100%;
-            animation: drift 18s ease-in-out infinite alternate;
-            pointer-events: none;
-        }
-        @keyframes drift {
-            0% {
-                background-position: 50% 0%, 85% 90%, 10% 100%, 50% 50%, 0 0;
-            }
-            100% {
-                background-position: 54% 8%, 78% 82%, 18% 92%, 52% 48%, 0 0;
-            }
-        }
-
-        /* ---- floating spark particles ---- */
-        .sparks {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
+            background: var(--card);
+            border-radius: 28px;
+            padding: 32px 24px 28px;
+            text-align: center;
+            border: 1px solid rgba(56, 189, 248, 0.12);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(56, 189, 248, 0.04);
+            backdrop-filter: blur(2px);
+            position: relative;
             overflow: hidden;
         }
-        .spark {
+
+        /* subtle animated border glow */
+        .container::before {
+            content: '';
             position: absolute;
-            width: 2px;
-            height: 2px;
-            border-radius: 50%;
-            background: var(--gold-soft);
-            animation: floatUp 6s ease-in infinite;
-            opacity: 0;
-        }
-        @keyframes floatUp {
-            0% {
-                opacity: 0;
-                transform: translateY(0) translateX(0) scale(0);
-            }
-            10% {
-                opacity: 0.9;
-                transform: translateY(-10px) translateX(2px) scale(1);
-            }
-            60% {
-                opacity: 0.5;
-                transform: translateY(-160px) translateX(-8px) scale(1.2);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-280px) translateX(14px) scale(0.3);
-            }
+            inset: -2px;
+            border-radius: 28px;
+            padding: 2px;
+            background: conic-gradient(from 0deg, transparent, rgba(56, 189, 248, 0.15), transparent 60%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            animation: spinGlow 8s linear infinite;
         }
 
-        .card {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            max-width: 440px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(18px);
-            animation: rise 0.85s cubic-bezier(.2, .88, .32, 1) 0.06s forwards;
-        }
-        @keyframes rise {
+        @keyframes spinGlow {
             to {
-                opacity: 1;
-                transform: translateY(0);
+                transform: rotate(360deg);
             }
         }
 
-        /* ---- bigger profile photo with multi-layer glow ---- */
-        .avatar-wrap {
+        /* ── Profile Image ── */
+        .profile-wrap {
             position: relative;
-            width: 172px;
-            height: 172px;
-            margin-bottom: 22px;
-            z-index: 1;
+            display: inline-block;
+            margin-bottom: 14px;
         }
 
-        /* outer ambient glow ring */
-        .avatar-glow {
-            position: absolute;
-            inset: -20px;
+        .profile {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: conic-gradient(from 0deg, var(--gold), var(--coral), #d4a574, var(--gold-soft), var(--gold));
-            opacity: 0.35;
-            filter: blur(22px);
-            animation: glowPulse 3s ease-in-out infinite;
-            pointer-events: none;
-        }
-        @keyframes glowPulse {
-            0%,
-            100% {
-                opacity: 0.3;
-                filter: blur(22px);
-                transform: scale(1);
-            }
-            40% {
-                opacity: 0.55;
-                filter: blur(28px);
-                transform: scale(1.06);
-            }
-            70% {
-                opacity: 0.38;
-                filter: blur(20px);
-                transform: scale(0.97);
-            }
-        }
-
-        /* main reactive ring */
-        .avatar-ring {
-            position: absolute;
-            inset: -10px;
-            border-radius: 50%;
-            background: conic-gradient(from 0deg, var(--gold-soft), var(--coral), var(--gold), var(--gold-soft));
-            opacity: 0.6;
-            filter: blur(7px);
-            transform: scale(calc(1 + var(--ring-amp) * 0.22));
-            transition: transform 80ms linear, filter 120ms ease, opacity 120ms ease;
-            pointer-events: none;
-        }
-
-        .avatar-frame {
-            position: relative;
-            width: 172px;
-            height: 172px;
-            border-radius: 50%;
-            padding: 4px;
-            background: linear-gradient(155deg, var(--gold-soft), var(--coral), var(--gold));
-            box-shadow: 0 0 40px rgba(232, 184, 84, 0.2), 0 0 80px rgba(240, 133, 122, 0.1);
-        }
-        .avatar {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
+            border: 3px solid var(--cyan);
+            box-shadow: 0 0 30px var(--glow), 0 0 60px rgba(56, 189, 248, 0.08);
             object-fit: cover;
             display: block;
-            background: var(--bg-1);
-            border: 4px solid var(--bg-0);
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background: #1a2633;
         }
-        .avatar-frame:hover .avatar {
+
+        .profile:hover {
             transform: scale(1.03);
+            box-shadow: 0 0 40px var(--glow), 0 0 80px rgba(56, 189, 248, 0.12);
         }
-        .avatar-fallback {
-            width: 100%;
-            height: 100%;
+
+        /* ring pulse behind avatar */
+        .profile-wrap::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Fraunces', serif;
-            font-size: 64px;
-            font-weight: 600;
-            color: var(--gold-soft);
-            background: radial-gradient(circle at 30% 25%, #3a2147, #1c1024);
-            border: 4px solid var(--bg-0);
-            transition: transform 0.3s ease;
+            border: 2px solid rgba(56, 189, 248, 0.15);
+            animation: ringPulse 2.4s ease-in-out infinite;
         }
 
-        .eyebrow {
-            margin: 0 0 8px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--gold-soft);
-            opacity: 0.85;
-            animation: fadeInUp 0.7s ease 0.15s both;
-        }
-        @keyframes fadeInUp {
-            from {
+        @keyframes ringPulse {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.12);
                 opacity: 0;
-                transform: translateY(6px);
-            }
-            to {
-                opacity: 0.85;
-                transform: translateY(0);
             }
         }
 
-        .channel-name {
-            margin: 0 0 8px;
-            font-family: 'Fraunces', serif;
-            font-weight: 720;
-            font-size: clamp(30px, 8vw, 42px);
-            line-height: 1.05;
-            letter-spacing: -0.015em;
-            animation: fadeInUp 0.7s ease 0.2s both;
-            background: linear-gradient(160deg, var(--ink), var(--gold-soft));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        /* ── Typography ── */
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
         }
 
-        .tagline {
-            margin: 0 0 24px;
-            color: var(--ink-dim);
+        .highlight {
+            color: var(--cyan);
+            font-weight: 600;
             font-size: 15px;
-            line-height: 1.55;
-            max-width: 330px;
-            animation: fadeInUp 0.7s ease 0.25s both;
+            margin: 6px 0 12px;
+            letter-spacing: 0.3px;
         }
 
-        /* ---- bare waveform with improved idle animation ---- */
-        .wave-row {
-            width: 100%;
+        .desc {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+            margin: 0 0 20px;
+            max-width: 320px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ── Social Proof ── */
+        .social-proof {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 3.5px;
-            height: 48px;
-            margin-bottom: 28px;
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
-            user-select: none;
-            animation: fadeInUp 0.7s ease 0.3s both;
+            gap: 12px;
+            margin-bottom: 22px;
+            font-size: 13px;
+            color: var(--muted);
         }
-        .wave-row:focus-visible {
-            outline: 2px solid var(--gold-soft);
-            outline-offset: 6px;
-            border-radius: 6px;
+
+        .social-proof .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            display: inline-block;
+            animation: dotPulse 1.8s ease-in-out infinite;
         }
-        .vn-bar {
-            flex: 1 1 auto;
-            min-width: 2.5px;
-            max-width: 7px;
-            height: 18%;
-            border-radius: 4px;
-            background: linear-gradient(180deg, var(--gold-soft), var(--coral));
-            opacity: 0.85;
-            transition: height 100ms ease-out, opacity 100ms ease;
-            will-change: height;
+
+        @keyframes dotPulse {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scale(0.8);
+            }
         }
-        .vn-bar.peaking {
-            opacity: 1;
-            background: linear-gradient(180deg, #fff5e0, var(--gold), var(--coral));
+
+        .social-proof strong {
+            color: var(--text);
+            font-weight: 700;
         }
-        .cta {
+
+        .social-proof .count {
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        /* ── Button ── */
+        .btn {
             position: relative;
-            width: 100%;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 18px 24px;
-            border-radius: 15px;
-            background: linear-gradient(135deg, var(--gold-soft), var(--gold) 50%, #d99f3c);
-            color: #23140a;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 800;
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 14px;
+            font-weight: 700;
             font-size: 17px;
-            letter-spacing: 0.01em;
             text-decoration: none;
-            box-shadow: 0 10px 28px rgba(232, 184, 84, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.45);
-            animation: pulseGlow 2.4s ease-in-out infinite, fadeInUp 0.7s ease 0.35s both;
             overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            z-index: 1;
+            background: linear-gradient(135deg, var(--cyan), var(--cyan-dark));
+            color: #0b0e14;
+            border: none;
+            box-shadow: 0 4px 24px rgba(56, 189, 248, 0.35), 0 0 40px rgba(56, 189, 248, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            letter-spacing: 0.2px;
         }
-        .cta::after {
+
+        .btn .icon {
+            font-size: 20px;
+        }
+
+        /* shine */
+        .btn::before {
             content: '';
             position: absolute;
             top: -50%;
-            left: -75%;
-            width: 50%;
+            left: -60%;
+            width: 60%;
             height: 200%;
-            background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-            transform: skewX(-20deg);
-            animation: shimmer 3s ease-in-out infinite;
-            pointer-events: none;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            transform: skewX(-25deg);
+            animation: shine 3.2s ease-in-out infinite;
         }
-        @keyframes shimmer {
-            0%,
-            100% {
-                left: -75%;
+
+        @keyframes shine {
+            0% {
+                left: -60%;
             }
-            50% {
+            100% {
                 left: 120%;
             }
         }
-        .cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 14px 34px rgba(232, 184, 84, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-        }
-        .cta:active {
-            transform: translateY(0px) scale(0.985);
-            transition: transform 0.08s ease;
-        }
-        .cta .arrow {
-            width: 18px;
-            height: 18px;
-            transition: transform 0.25s ease;
-        }
-        .cta:hover .arrow {
-            transform: translateX(4px);
-        }
-        @keyframes pulseGlow {
-            0%,
-            100% {
-                box-shadow: 0 10px 28px rgba(232, 184, 84, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.45);
-            }
-            50% {
-                box-shadow: 0 10px 38px rgba(232, 184, 84, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-            }
-        }
-        .cta:focus-visible {
-            outline: 2px solid var(--gold-soft);
-            outline-offset: 4px;
+
+        .btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 36px rgba(56, 189, 248, 0.55), 0 0 60px rgba(56, 189, 248, 0.15);
         }
 
-        .trust-list {
-            list-style: none;
-            margin: 20px 0 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 100%;
-            animation: fadeInUp 0.7s ease 0.4s both;
+        .btn:active {
+            transform: scale(0.97);
         }
-        .trust-list li {
+
+        /* ── Timer Ring ── */
+        .timer-wrap {
+            margin-top: 26px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 9px;
-            font-size: 13.5px;
+            gap: 20px;
+            padding: 16px 20px 18px;
+            border-radius: 18px;
+            background: rgba(56, 189, 248, 0.04);
+            border: 1px solid rgba(56, 189, 248, 0.08);
+        }
+
+        .ring-container {
+            position: relative;
+            width: 72px;
+            height: 72px;
+            flex-shrink: 0;
+        }
+
+        .ring-container svg {
+            transform: rotate(-90deg);
+            width: 72px;
+            height: 72px;
+        }
+
+        .ring-container .bg-ring {
+            fill: none;
+            stroke: rgba(56, 189, 248, 0.10);
+            stroke-width: 5;
+        }
+
+        .ring-container .progress-ring {
+            fill: none;
+            stroke: var(--cyan);
+            stroke-width: 5;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.3s ease;
+            filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.3));
+        }
+
+        .ring-container .timer-center {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 1;
+            color: var(--text);
+            letter-spacing: 0.5px;
+        }
+
+        .ring-container .timer-center small {
+            font-size: 10px;
+            font-weight: 400;
+            color: var(--muted);
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        .timer-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--muted);
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .timer-label strong {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .timer-label .urgent {
+            color: #f87171;
             font-weight: 600;
-            color: var(--ink-dim);
-            transition: color 0.3s ease;
-        }
-        .trust-list li:hover {
-            color: var(--ink);
-        }
-        .trust-list svg {
-            width: 16px;
-            height: 16px;
-            flex: 0 0 auto;
+            animation: urgentPulse 1.2s ease-in-out infinite;
         }
 
-        .divider {
-            width: 64px;
-            height: 1px;
-            background: rgba(245, 239, 230, 0.2);
-            margin: 26px 0 16px;
+        @keyframes urgentPulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.4;
+            }
         }
 
+        /* ── Footer ── */
         .footer {
-            font-size: 11.5px;
-            color: var(--ink-dim);
-            opacity: 0.5;
-            letter-spacing: 0.01em;
+            margin-top: 22px;
+            font-size: 11px;
+            color: #4a5568;
+            letter-spacing: 0.3px;
         }
 
-  
+        .footer a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 440px) {
+            .container {
+                padding: 24px 16px 22px;
+                border-radius: 22px;
+            }
+
+            .profile {
+                width: 100px;
+                height: 100px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            .btn {
+                font-size: 15px;
+                padding: 14px 16px;
+            }
+
+            .ring-container {
+                width: 62px;
+                height: 62px;
+            }
+
+            .ring-container svg {
+                width: 62px;
+                height: 62px;
+            }
+
+            .ring-container .timer-center {
+                font-size: 17px;
+            }
+
+            .timer-wrap {
+                padding: 14px 14px 16px;
+                gap: 14px;
+            }
+
+            .timer-label {
+                font-size: 12px;
+            }
+
+            .social-proof {
+                font-size: 12px;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .container {
+                padding: 18px 12px 18px;
+            }
+
+            .profile {
+                width: 80px;
+                height: 80px;
+            }
+
+            h1 {
+                font-size: 19px;
+            }
+
+            .ring-container {
+                width: 54px;
+                height: 54px;
+            }
+
+            .ring-container svg {
+                width: 54px;
+                height: 54px;
+            }
+
+            .ring-container .timer-center {
+                font-size: 15px;
+            }
+
+            .btn {
+                font-size: 14px;
+                padding: 12px 14px;
+            }
+        }
     </style>
-</head>
+  </head>
+
 <body>
 
-    <div class="ambient" aria-hidden="true"></div>
+    <div class="container">
 
-    <div class="sparks" id="sparksContainer" aria-hidden="true"></div>
+        <!-- Profile -->
+        <div class="profile-wrap">
+            <img
+            src="https://i.ibb.co/Rp7GDhHD/ashish.jpg"
+            class="profile"
+            alt="Ashish Bhai"
+            loading="lazy"
+            decoding="async"
+            />
+        </div>
 
-    <div class="scene">
-        <main class="card">
-            <div class="avatar-wrap">
-                <div class="avatar-glow"></div>
-                <div class="avatar-ring" id="avatarRing"></div>
-                <div class="avatar-frame">
-                    <img class="avatar" id="avatarImg" src="ashish.jpeg" alt="Ashish Bhai" loading="eager">
+        <h1>Ashish Bhai</h1>
+        <div class="highlight"> Premium Signals &amp; Insights</div>
+
+        <p class="desc">
+            Join our exclusive Telegram community for daily updates, signals &amp; market insights.
+        </p>
+
+        <!-- Social Proof -->
+        <div class="social-proof">
+            <span class="dot"></span>
+            <span><strong id="memberCount">1,247</strong> members joined this week</span>
+        </div>
+
+        <!-- Button -->
+        <a href="https://telegram.me/+Zc0W8bD8aloyMGY1" target="_blank" class="btn" id="mainCta">
+            𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝑪𝒉𝒂𝒏𝒏𝒆𝒍
+        </a>
+
+        <!-- Timer -->
+        <div class="timer-wrap">
+            <div class="ring-container">
+                <svg viewBox="0 0 72 72">
+                    <circle class="bg-ring" cx="36" cy="36" r="30" />
+                    <circle class="progress-ring" id="timerRing" cx="36" cy="36" r="30"
+                    stroke-dasharray="188.5" stroke-dashoffset="0" />
+                </svg>
+                <div class="timer-center">
+                    <span id="timerDisplay">60</span>
+                    <small>sec</small>
                 </div>
             </div>
-
-            <h1 class="channel-name" id="channelName">𝑨𝒔𝒉𝒊𝒔𝒉 𝑩𝒉𝒂𝒊</h1>
-            <p class="tagline" id="tagline">best and trusted channel across telegram </p>
-
-            <div class="wave-row" id="waveRow" role="button" tabindex="0" aria-label="Click to play/pause the voice message">
-                
+            <div class="timer-label">
+                <strong>Limited offer</strong><br />
+                <span class="urgent">⏳ Hurry, ends soon!</span>
             </div>
+        </div>
 
-            <a class="cta" id="ctaBtn" href="https://t.me/+Zc0W8bD8aloyMGY1" target="_blank" rel="noopener">
-                <svg width="22" height="22" viewBox="0 0 240 240" aria-hidden="true">
-                    <circle cx="120" cy="120" r="120" fill="#ffffff"/>
-                    <path d="M168.69 79.47l-19.36 91.31c-1.46 6.4-5.27 7.97-10.68 4.96l-29.5-21.73-14.24 13.7c-1.57 1.57-2.89 2.89-5.93 2.89l2.12-30.04 54.69-49.4c2.38-2.12-.52-3.3-3.7-1.18l-67.6 42.6-29.12-9.1c-6.33-1.98-6.45-6.33 1.32-9.36l113.86-43.9c5.27-1.98 9.88 1.27 8.14 9.25z" fill="#27A7E7"/>
-                </svg>
-                <span id="ctaText">𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝑪𝒉𝒂𝒏𝒏𝒆𝒍</span>
-                <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="#23140a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
+        <div class="footer">
+            Managed by <a href="#" target="_blank">Hustler Ads</a>
+        </div>
 
-            <ul class="trust-list" id="trustList">
-                <li>
-                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#E8B854" opacity="0.2"/><path d="M7 12.5l3 3 7-7" stroke="#E8B854" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    Best Channel on Telegram
-                </li>
-                <li>
-                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#E8B854" opacity="0.2"/><path d="M7 12.5l3 3 7-7" stroke="#E8B854" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    100% Safe &amp; Secure
-                </li>
-                <li>
-                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#E8B854" opacity="0.2"/><path d="M7 12.5l3 3 7-7" stroke="#E8B854" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    Trusted by Thousands of Members
-                </li>
-            </ul>
-
-            <div class="divider" aria-hidden="true"></div>
-            <p class="footer" id="footer">&copy; 2026 Channel Name. All rights reserved.</p>
-        </main>
     </div>
 
-    <audio id="voiceAudio" preload="auto" playsinline autoplay loop>
-        <source src="ashish.ogg" type="audio/ogg">
-        <source src="ashish.mp3" type="audio/mpeg">
-    </audio>
-
     <script>
-        const CONFIG = {
-            channelName: "𝑨𝒔𝒉𝒊𝒔𝒉 𝑩𝒉𝒂𝒊",
-            tagline: "best and trusted channel across telegram",
-            ctaText: "𝑱𝒐𝒊𝒏 𝒕𝒉𝒆 𝑪𝒉𝒂𝒏𝒏𝒆𝒍", 
-            ctaHref: "https://t.me/+Zc0W8bD8aloyMGY1", 
-            trustPoints: [
-                "Best Channel on Telegram",
-                "100% Safe & Secure",
-                "Trusted by Thousands of Members"
-            ]
-        };
-        /* ===================================================================== */
+        (function() {
+            'use strict';
 
-        // --- Populate content from CONFIG ---
-        document.getElementById('channelName').textContent = CONFIG.channelName;
-        document.getElementById('tagline').textContent = CONFIG.tagline;
-        document.getElementById('ctaText').textContent = CONFIG.ctaText;
-        document.getElementById('ctaBtn').href = CONFIG.ctaHref;
-        document.getElementById('footer').innerHTML =
-            `&copy; ${new Date().getFullYear()} ${CONFIG.channelName}. All rights reserved.`;
+            // ── Config ──
+            const TOTAL_SECONDS = 5;
+            const CIRCUMFERENCE = 188.5; // 2 * PI * 30
 
-        const trustList = document.getElementById('trustList');
-        trustList.innerHTML = CONFIG.trustPoints.map(point => `
-          <li>
-            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#E8B854" opacity="0.2"/><path d="M7 12.5l3 3 7-7" stroke="#E8B854" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            ${point}
-          </li>`).join('');
+            // ── DOM refs ──
+            const timerDisplay = document.getElementById('timerDisplay');
+            const timerRing = document.getElementById('timerRing');
+            const memberCount = document.getElementById('memberCount');
 
-        // --- Avatar fallback to monogram if avatar.jpg is missing ---
-        const avatarImg = document.getElementById('avatarImg');
-        avatarImg.addEventListener('error', () => {
-            const wrap = avatarImg.parentElement;
-            const initial = (CONFIG.channelName.trim()[0] || '•').toUpperCase();
-            wrap.innerHTML = `<div class="avatar-fallback">${initial}</div>`;
-        }, { once: true });
+            // ── State ──
+            let remaining = TOTAL_SECONDS;
+            let endTime = Date.now() + remaining * 1000;
+            let animationFrame = null;
+            let redirectDone = false;
 
-        // --- Floating sparks ---
-        const sparksContainer = document.getElementById('sparksContainer');
-        const SPARK_COUNT = 18;
-        for (let i = 0; i < SPARK_COUNT; i++) {
-            const spark = document.createElement('div');
-            spark.className = 'spark';
-            spark.style.left = Math.random() * 90 + '%';
-            spark.style.top = (60 + Math.random() * 35) + '%';
-            spark.style.animationDuration = (4 + Math.random() * 8) + 's';
-            spark.style.animationDelay = Math.random() * 5 + 's';
-            spark.style.width = (1 + Math.random() * 2.5) + 'px';
-            spark.style.height = spark.style.width;
-            sparksContainer.appendChild(spark);
-        }
+            // ── Social proof counter (animate on load) ──
+            function animateMemberCount() {
+                const target = 1247;
+                const start = 1120;
+                const duration = 1800;
+                const startTime = performance.now();
 
-        // --- Build waveform bars ---
-        const BAR_COUNT = 34;
-        const waveRow = document.getElementById('waveRow');
-        const bars = [];
-        for (let i = 0; i < BAR_COUNT; i++) {
-            const b = document.createElement('div');
-            b.className = 'vn-bar';
-            waveRow.appendChild(b);
-            bars.push(b);
-        }
-
-        const audio = document.getElementById('voiceAudio');
-        const ring = document.getElementById('avatarRing');
-
-        let audioCtx, analyser, dataArray, sourceNode, rafId, idleId;
-        let isReactive = false;
-
-        function ensureGraph() {
-            if (audioCtx) return;
-            const Ctx = window.AudioContext || window.webkitAudioContext;
-            audioCtx = new Ctx();
-            sourceNode = audioCtx.createMediaElementSource(audio);
-            analyser = audioCtx.createAnalyser();
-            analyser.fftSize = 128;
-            analyser.smoothingTimeConstant = 0.55;
-            dataArray = new Uint8Array(analyser.frequencyBinCount);
-            sourceNode.connect(analyser);
-            analyser.connect(audioCtx.destination);
-        }
-
-        function stopIdle() {
-            if (idleId) cancelAnimationFrame(idleId);
-            idleId = null;
-        }
-        function stopReactive() {
-            if (rafId) cancelAnimationFrame(rafId);
-            rafId = null;
-            isReactive = false;
-        }
-
-        // --- Beautiful idle wave — flowing sine pattern ---
-        function idleWave(t) {
-            const now = t || performance.now();
-            bars.forEach((b, i) => {
-                const phase = (now / 550) + (i * 0.45);
-                const h = 16 + Math.sin(phase) * 14 + Math.sin(phase * 2.3) * 5 + Math.sin(phase * 0.6 + 1.5) * 8;
-                b.style.height = Math.max(8, Math.min(85, h)) + '%';
-                b.classList.remove('peaking');
-            });
-            // Gentle ring pulse in idle
-            const amp = 0.16 + Math.sin(now / 650) * 0.09 + Math.sin(now / 1100) * 0.05;
-            ring.style.setProperty('--ring-amp', Math.max(0.05, amp).toFixed(3));
-            idleId = requestAnimationFrame(idleWave);
-        }
-
-        // --- Reactive waveform driven by audio ---
-        function reactiveWave() {
-            if (!analyser || !isReactive) return;
-            analyser.getByteFrequencyData(dataArray);
-            let sum = 0;
-            const binStep = dataArray.length / BAR_COUNT;
-            for (let i = 0; i < BAR_COUNT; i++) {
-                const v = dataArray[Math.floor(i * binStep)] || 0;
-                sum += v;
-                const pct = (v / 255) * 100;
-                bars[i].style.height = Math.max(10, pct) + '%';
-                if (v > 180) bars[i].classList.add('peaking');
-                else bars[i].classList.remove('peaking');
-            }
-            const avgAmp = (sum / BAR_COUNT) / 255;
-            ring.style.setProperty('--ring-amp', Math.max(0.08, avgAmp * 1.4).toFixed(3));
-            if (!audio.paused) {
-                rafId = requestAnimationFrame(reactiveWave);
-            } else {
-                stopReactive();
-                idleId = requestAnimationFrame(idleWave);
-            }
-        }
-
-        // --- Audio event handlers ---
-        audio.addEventListener('play', () => {
-            stopIdle();
-            isReactive = true;
-            reactiveWave();
-        });
-        audio.addEventListener('pause', () => {
-            stopReactive();
-            if (!idleId) idleId = requestAnimationFrame(idleWave);
-        });
-        audio.addEventListener('ended', () => {
-            stopReactive();
-            if (!idleId) idleId = requestAnimationFrame(idleWave);
-        });
-        audio.addEventListener('error', () => {
-            stopReactive();
-            if (!idleId) idleId = requestAnimationFrame(idleWave);
-            // If audio fails to load, idle animation is the beautiful fallback
-            console.warn('Voice audio could not be loaded. Visual ring animation continues.');
-        });
-
-        // --- Toggle play/pause by clicking waveform ---
-        async function toggleAudio() {
-            try {
-                ensureGraph();
-                if (audioCtx.state === 'suspended') await audioCtx.resume();
-                if (audio.paused) {
-                    await audio.play();
-                } else {
-                    audio.pause();
+                function tick(now) {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.round(start + (target - start) * eased);
+                    memberCount.textContent = current.toLocaleString();
+                    if (progress < 1) {
+                        requestAnimationFrame(tick);
+                    } else {
+                        memberCount.textContent = target.toLocaleString();
+                    }
                 }
-            } catch (e) {
-                // Silently handle — idle animation is already beautiful
+                requestAnimationFrame(tick);
             }
-        }
-        waveRow.addEventListener('click', toggleAudio);
-        waveRow.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleAudio();
+
+            // ── Timer update ──
+            function updateTimer() {
+                const now = Date.now();
+                let diff = endTime - now;
+
+                if (diff <= 0) {
+                    diff = 0;
+                    if (!redirectDone) {
+                        redirectDone = true;
+                        // Small delay so the user sees 0 before redirect
+                        setTimeout(function() {
+                            window.location.href = 'https://telegram.me/+Zc0W8bD8aloyMGY1';
+                        }, 300);
+                    }
+                }
+
+                const seconds = Math.ceil(diff / 1000);
+                const clamped = Math.max(0, Math.min(seconds, TOTAL_SECONDS));
+
+                // Update display
+                timerDisplay.textContent = String(clamped).padStart(2, '0');
+
+                // Update ring
+                const progress = clamped / TOTAL_SECONDS;
+                const offset = CIRCUMFERENCE * (1 - progress);
+                timerRing.setAttribute('stroke-dashoffset', offset);
+
+                // Color shift when low
+                if (clamped <= 10) {
+                    timerRing.setAttribute('stroke', '#f87171');
+                } else if (clamped <= 20) {
+                    timerRing.setAttribute('stroke', '#fbbf24');
+                } else {
+                    timerRing.setAttribute('stroke', '#38bdf8');
+                }
+
+                // Continue if not done
+                if (clamped > 0) {
+                    animationFrame = requestAnimationFrame(updateTimer);
+                } else {
+                    // Ensure ring is at 0
+                    timerRing.setAttribute('stroke-dashoffset', CIRCUMFERENCE);
+                    timerRing.setAttribute('stroke', '#f87171');
+                }
             }
-        });
 
-        // --- Aggressive autoplay — tries multiple strategies ---
-        async function attemptAutoplay() {
-            try {
-                ensureGraph();
-                if (audioCtx.state === 'suspended') await audioCtx.resume();
-                await audio.play();
-                // Success! Reactive mode takes over.
-            } catch (err) {
-                // Browser blocked autoplay — idle animation is already running and beautiful.
-                // Try again on the first user interaction anywhere on the page.
-                const retry = async () => {
-                    try {
-                        ensureGraph();
-                        if (audioCtx.state === 'suspended') await audioCtx.resume();
-                        await audio.play();
-                        cleanup();
-                    } catch (e) { /* still blocked */ }
-                };
-                const cleanup = () => {
-                    document.removeEventListener('pointerdown', retry);
-                    document.removeEventListener('touchstart', retry);
-                    document.removeEventListener('scroll', retry);
-                    document.removeEventListener('keydown', retry);
-                };
-                document.addEventListener('pointerdown', retry, { once: true, passive: true });
-                document.addEventListener('touchstart', retry, { once: true, passive: true });
-                document.addEventListener('scroll', retry, { once: true, passive: true });
-                document.addEventListener('keydown', retry, { once: true, passive: true });
-            }
-        }
+            // ── Start ──
+            animateMemberCount();
+            updateTimer();
 
-        // --- Start everything ---
-        function boot() {
-            ensureGraph();
-            // Start the beautiful idle animation immediately
-            idleId = requestAnimationFrame(idleWave);
-            // Aggressively try to autoplay
-            attemptAutoplay();
-        }
+            // ── Cleanup on page hide ──
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden && animationFrame) {
+                    cancelAnimationFrame(animationFrame);
+                } else if (!document.hidden) {
+                    // Re-sync when tab becomes visible
+                    endTime = Date.now() + Math.max(0, remaining) * 1000;
+                    if (!animationFrame && remaining > 0) {
+                        updateTimer();
+                    }
+                }
+            });
 
-        // Fire as early as possible
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', boot);
-        } else {
-            boot();
-        }
+            // ── Re-sync if user leaves and returns ──
+            window.addEventListener('focus', function() {
+                if (remaining > 0) {
+                    endTime = Date.now() + remaining * 1000;
+                    if (!animationFrame) {
+                        updateTimer();
+                    }
+                }
+            });
 
-        // Also try on window load (some browsers allow autoplay after full load)
-        window.addEventListener('load', () => {
-            if (audio.paused && !isReactive) {
-                attemptAutoplay();
-            }
-        });
-
-        // Handle page visibility changes — resume if needed
-        document.addEventListener('visibilitychange', () => {
-            if (!document.hidden && audio.paused && !isReactive) {
-                attemptAutoplay();
-            }
-        });
-
-        setTimeout(function(){
-    window.location.href = "https://t.me/+a2JVj3l03bxiZGM1";
-}, 5000); // 8000ms = 8 seconds
+        })();
     </script>
+
 </body>
 </html>
